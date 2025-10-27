@@ -28,6 +28,16 @@ class evm_driver extends uvm_driver#(evm_sequence_item);
  endtask
 
  task drive();
+  vif_drv.evm_driver_cb.switch_on_evm <= req.switch_on_evm;
+  vif_drv.evm_driver_cb.candidate_ready <= req.candidate_ready;
+  vif_drv.evm_driver_cb.voting_candidate_1 <= req.apb_vote_candidate_1;
+  vif_drv.evm_driver_cb.vote_candidate_2 <= req.vote_candidate_2;
+  vif_drv.evm_driver_cb.vote_candidate_3 <= req.vote_candidate_3;
+  vif_drv.evm_driver_cb.voting_session_done <= req.voting_session_done;
+  vif_drv.evm_driver_cb.display_results <= req.display_results;
+  vif_drv.evm_driver_cb.vote_display_winner <= req.display_winner;
+  $display("driving",$time);
+  ->active_mon_trigger;
 
  endtask
 
