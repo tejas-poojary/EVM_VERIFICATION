@@ -14,7 +14,7 @@ class evm_scoreboard extends uvm_scoreboard;
   
   virtual evm_interface vif;
   evm_sequence_item act_mon_q[$], pas_mon_q[$];
-  vote_t vote_candidate_1, vote_candidate_2, vote_candidate_3; // candidate vote count !
+  static vote_t vote_candidate_1, vote_candidate_2, vote_candidate_3; // candidate vote count !
   vote_t vote [2:0]; // collective vote count for 3 candidate
 
   function new(string name ="evm_scoreboard", uvm_component parent =null);
@@ -67,6 +67,7 @@ class evm_scoreboard extends uvm_scoreboard;
       exp_out.candidate_name = 2'b11; // default !!
       // ................
       ready = 0;
+      return;
     end : EVM_SWITCH_OFF
 
     // Flag_ready for candidate_selection
