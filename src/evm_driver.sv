@@ -2,7 +2,7 @@ class evm_driver extends uvm_driver#(evm_sequence_item);
  `uvm_component_utils(evm_driver)
  evm_sequence_item req;
  virtual evm_interface vif_drv;
- event active_mon_trigger,passive_mon_trigger;
+
 
  function new(string name="evm_driver",uvm_component parent=null);
   super.new(name,parent);
@@ -12,10 +12,6 @@ class evm_driver extends uvm_driver#(evm_sequence_item);
   super.build_phase(phase);
   if(!uvm_config_db#(evm_interface)::get(this,"","vif",vif_drv)
    `uvm_fatal(get_full_name(),"Driver didnt get interface handle");
-  if(!uvm_config_db#(event)::get(this,"","act_event",active_mon_trigger)
-   `uvm_fatal(get_full_name(),"Driver didnt get active monitor event");
-  if(!uvm_config_db#(event)::get(this,"","pas_event",passive_mon_trigger)
-   `uvm_fatal(get_full_name(),"Driver didnt get passive monitor event")
  endfunction
 
  virtual task run_phase(uvm_phase phase);
@@ -37,8 +33,8 @@ class evm_driver extends uvm_driver#(evm_sequence_item);
   vif_drv.evm_driver_cb.display_results <= req.display_results;
   vif_drv.evm_driver_cb.vote_display_winner <= req.display_winner;
   $display("driving",$time);
-  ->active_mon_trigger;
-
+  @(vif_drv.evm_driver_cb);
  endtask
 
- endclass
+endclass
+
