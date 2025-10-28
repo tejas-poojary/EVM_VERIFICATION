@@ -102,3 +102,37 @@ class all_3tie_test extends evm_base_test;
 		phase.drop_objection(this, "Objection Dropped");
 	endtask
 endclass
+
+class fsm_hang_in_waiting_for_candidate_test extends evm_base_test;
+	`uvm_component_utils(fsm_hang_in_waiting_for_candidate_test)
+
+	function new(string name = "fsm_hang_in_waiting_for_candidate_test", uvm_component parent = null);
+		super.new(name, parent);
+	endfunction
+
+	virtual task run_phase(uvm_phase phase);
+		fsm_hang_in_waiting_for_candidate_seq seq;
+		super.run_phase(phase);
+		phase.raise_objection(this, "Objection Raised");
+		seq = fsm_hang_in_waiting_for_candidate_seq::type_id::create("seq");
+		seq.start(env.evm_active_agent.evm_sequencer);
+		phase.drop_objection(this, "Objection Dropped");
+	endtask
+endclass
+
+class fsm_hang_in_waiting_for_candidate_to_vote_test extends evm_base_test;
+	`uvm_component_utils(fsm_hang_in_waiting_for_candidate_to_vote_test)
+
+	function new(string name = "fsm_hang_in_waiting_for_candidate_to_vote_test", uvm_component parent = null);
+		super.new(name, parent);
+	endfunction
+
+	virtual task run_phase(uvm_phase phase);
+		fsm_hang_in_waiting_for_candidate_to_vote_seq seq;
+		super.run_phase(phase);
+		phase.raise_objection(this, "Objection Raised");
+		seq = fsm_hang_in_waiting_for_candidate_to_vote_seq::type_id::create("seq");
+		seq.start(env.evm_active_agent.evm_sequencer);
+		phase.drop_objection(this, "Objection Dropped");
+	endtask
+endclass
