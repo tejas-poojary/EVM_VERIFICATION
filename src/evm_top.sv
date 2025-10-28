@@ -13,7 +13,7 @@ module top();
 
  
   evm_interface  vif(clk,rst);
-  evm DUT(
+  evm DUT #(parameter WIDTH=7)(
     .clk(clk),
     .rst(rst),
     .vote_candidate_1(vif.vote_candidate_1),

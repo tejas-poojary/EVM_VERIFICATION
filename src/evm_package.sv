@@ -1,4 +1,6 @@
 package evm_pkg;
+`include "uvm_macros.svh"
+ import uvm_pkg::*; 
 `include "evm_sequence_item.sv"
 `include "evm_sequence.sv"
 `include "evm_sequencer.sv"
