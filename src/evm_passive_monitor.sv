@@ -5,7 +5,7 @@ class evm_passive_monitor extends uvm_monitor;
   uvm_analysis_port#(evm_sequence_item) pass_mon_port;
   function new(string name = "evm_passive_monitor",uvm_component parent = null);
     super.new(name,parent);
-    act_mon_port = new("pass_mon_port",this);
+    pass_mon_port = new("pass_mon_port",this);
   endfunction
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
@@ -14,7 +14,7 @@ class evm_passive_monitor extends uvm_monitor;
   endfunction
   virtual task run_phase(uvm_phase phase);
     seq_item = evm_sequence_item :: type_id :: create("seq_item");
-    repeat(2)@(vif.pass_mon_cb);
+    repeat(4)@(vif.evm_monitor_cb);
     forever begin
       seq_item.candidate_name = vif.candidate_name;
       seq_item.invalid_results = vif.invalid_results;
@@ -24,6 +24,7 @@ class evm_passive_monitor extends uvm_monitor;
       $display("PASSIVE MONITOR RECEIVES @%0t",$time);
       seq_item.print();
       pass_mon_port.write(seq_item);
+      @(vif.evm_monitor_cb);
     end
   endtask
 endclass

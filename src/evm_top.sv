@@ -13,7 +13,7 @@ module top();
 
  
   evm_interface  vif(clk,rst);
-  evm DUT #(parameter WIDTH=7)(
+  evm DUT(
     .clk(clk),
     .rst(rst),
     .vote_candidate_1(vif.vote_candidate_1),
@@ -46,7 +46,7 @@ module top();
 
   initial
   begin
-    uvm_config_db #(virtual evm_interface)::set(uvm_root::get(),"*","vif",vif);
+    uvm_config_db #(virtual evm_interface)::set(uvm_root::get(),"*","evm_inf",vif);
 
     $dumpfile("dump.vcd");
     $dumpvars;

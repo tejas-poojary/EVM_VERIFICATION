@@ -1,1 +1,1 @@
-
+`define WIDTH 7

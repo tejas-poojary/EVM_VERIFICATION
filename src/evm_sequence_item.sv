@@ -1,20 +1,20 @@
 class evm_sequence_item extends uvm_sequence_item;
   //inputs
-  rand logic vote_candidate_1;
-	rand logic vote_candidate_2;
-	rand logic vote_candidate_3;
-	rand logic switch_on_evm;
-	rand logic candidate_ready;
-	rand logic voting_session_done;
-	rand logic [1:0]display_results;
-	rand logic display_winner;
+  rand bit vote_candidate_1;
+	rand bit vote_candidate_2;
+	rand bit vote_candidate_3;
+	rand bit switch_on_evm;
+	rand bit candidate_ready;
+	rand bit voting_session_done;
+	rand bit [1:0]display_results;
+	rand bit display_winner;
 
 	//outputs
-	logic [2:0]candidate_name;
-	logic invalid_results;
-  logic [7-1:0]results;
-  logic voting_in_progress;
-  logic voting_done;
+	bit [2:0]candidate_name;
+	bit invalid_results;
+  bit [7-1:0]results;
+  bit voting_in_progress;
+  bit voting_done;
 
   `uvm_object_utils_begin(evm_sequence_item)
 		`uvm_field_int(vote_candidate_1, UVM_ALL_ON | UVM_DEC)

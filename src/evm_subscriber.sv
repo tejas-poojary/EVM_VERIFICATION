@@ -1,10 +1,10 @@
-`uvm_analysis_imp_decl(_pas_mon)
+`uvm_analysis_imp_decl(_pass_mon)
 
 class evm_subscriber extends uvm_subscriber#(evm_sequence_item);
 
 `uvm_component_utils(evm_subscriber)
 
-uvm_analysis_imp_pas_mon#(evm_sequence_item, evm_subscriber) pas_mon_export;
+ uvm_analysis_imp_pass_mon#(evm_sequence_item, evm_subscriber) pass_mon_sub_imp;
 
 evm_sequence_item act_item;
 evm_sequence_item pas_item;
@@ -19,7 +19,7 @@ VOTE_CANDIDATE_3_CHECK : coverpoint act_item.vote_candidate_3 { bins cand3[]  = 
 SWITCH_ON_EVM_CHECK : coverpoint act_item.switch_on_evm { bins switch_on_evm[] = {0,1}; }
 CANDIDATE_READY_CHECK : coverpoint act_item.candidate_ready { bins candidate_ready[] = {0,1}; }
 VOTING_SESSION_DONE_CHECK : coverpoint act_item.voting_session_done { bins voting_session_done[] = {0,1}; }
-DISPLAY_RESULT_CHECK : coverpoint act_item.display_results { bins display_result[] = {[0:3]};
+DISPLAY_RESULT_CHECK : coverpoint act_item.display_results { bins display_result[] = {[0:3]};}
 DISPLAY_WINNER_CHECK : coverpoint act_item.display_winner { bins display_winner[] = {0,1}; }
 
 endgroup
@@ -41,15 +41,15 @@ pas_item = new("passive_monitor");
 act_mon_cov = new();
 pas_mon_cov = new();
 
-pas_mon_export = new("pas_mon_export", this);
+pass_mon_sub_imp = new("pass_mon_sub_imp", this);
 endfunction
 
-virtual function void write(evm_transaction t);
+virtual function void write(evm_sequence_item t);
 act_item = t;
 act_mon_cov.sample();
 endfunction
 
-virtual function void write_pas_mon(evm_transaction t);  //  passive monitor
+virtual function void write_pass_mon(evm_sequence_item t);  //  passive monitor
 pas_item = t;
 pas_mon_cov.sample();
 endfunction

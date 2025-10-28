@@ -19,7 +19,7 @@ endclass
 
 
 class rand_test extends evm_base_test;
-	`uvm_component_utils(rand_test1)
+	`uvm_component_utils(rand_test)
 
 	function new(string name = "rand_test", uvm_component parent = null);
 		super.new(name, parent);
@@ -30,7 +30,7 @@ class rand_test extends evm_base_test;
 		super.run_phase(phase);
 		phase.raise_objection(this, "Objection Raised");
 		seq = rand_seq::type_id::create("seq");
-		seq.start(env.evm_active_agent.evm_sequencer);
+		seq.start(env.evm_active_agent.seqr);
 		phase.drop_objection(this, "Objection Dropped");
 	endtask
 endclass
@@ -47,7 +47,7 @@ class pure_maj_test extends evm_base_test;
 		super.run_phase(phase);
 		phase.raise_objection(this, "Objection Raised");
 		seq = pure_maj_seq::type_id::create("seq");
-		seq.start(env.evm_active_agent.evm_sequencer);
+		seq.start(env.evm_active_agent.seqr);
 		phase.drop_objection(this, "Objection Dropped");
 	endtask
 endclass
@@ -64,7 +64,7 @@ class top_2tie_test extends evm_base_test;
 		super.run_phase(phase);
 		phase.raise_objection(this, "Objection Raised");
 		seq = top_2tie_seq::type_id::create("seq");
-		seq.start(env.evm_active_agent.evm_sequencer);
+		seq.start(env.evm_active_agent.seqr);
 		phase.drop_objection(this, "Objection Dropped");
 	endtask
 endclass
@@ -81,7 +81,7 @@ class bottom_Two_tie_test extends evm_base_test;
 		super.run_phase(phase);
 		phase.raise_objection(this, "Objection Raised");
 		seq = bottom_Two_tie_seq::type_id::create("seq");
-		seq.start(env.evm_active_agent.evm_sequencer);
+		seq.start(env.evm_active_agent.seqr);
 		phase.drop_objection(this, "Objection Dropped");
 	endtask
 endclass
@@ -98,7 +98,7 @@ class all_3tie_test extends evm_base_test;
 		super.run_phase(phase);
 		phase.raise_objection(this, "Objection Raised");
 		seq = all_3tie_seq::type_id::create("seq");
-		seq.start(env.evm_active_agent.evm_sequencer);
+		seq.start(env.evm_active_agent.seqr);
 		phase.drop_objection(this, "Objection Dropped");
 	endtask
 endclass
@@ -115,7 +115,7 @@ class fsm_hang_in_waiting_for_candidate_test extends evm_base_test;
 		super.run_phase(phase);
 		phase.raise_objection(this, "Objection Raised");
 		seq = fsm_hang_in_waiting_for_candidate_seq::type_id::create("seq");
-		seq.start(env.evm_active_agent.evm_sequencer);
+		seq.start(env.evm_active_agent.seqr);
 		phase.drop_objection(this, "Objection Dropped");
 	endtask
 endclass
@@ -132,7 +132,7 @@ class fsm_hang_in_waiting_for_candidate_to_vote_test extends evm_base_test;
 		super.run_phase(phase);
 		phase.raise_objection(this, "Objection Raised");
 		seq = fsm_hang_in_waiting_for_candidate_to_vote_seq::type_id::create("seq");
-		seq.start(env.evm_active_agent.evm_sequencer);
+		seq.start(env.evm_active_agent.seqr);
 		phase.drop_objection(this, "Objection Dropped");
 	endtask
 endclass

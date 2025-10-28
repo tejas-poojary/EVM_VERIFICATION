@@ -14,7 +14,7 @@ class evm_active_monitor extends uvm_monitor;
   endfunction
   virtual task run_phase(uvm_phase phase);
     seq_item = evm_sequence_item :: type_id :: create("seq_item");
-    @(vif.act_mon_cb);
+    repeat(3)@(vif.evm_monitor_cb);
     forever begin
       seq_item.vote_candidate_1 = vif.vote_candidate_1;
       seq_item.vote_candidate_2 = vif.vote_candidate_2;
@@ -22,11 +22,12 @@ class evm_active_monitor extends uvm_monitor;
       seq_item.switch_on_evm = vif.switch_on_evm;
       seq_item.candidate_ready = vif.candidate_ready;
       seq_item.voting_session_done = vif.voting_session_done;
-      seq_item.display_result = vif.display_result;
+      seq_item.display_results = vif.display_results;
       seq_item.display_winner = vif.display_winner;
       $display("ACTIVE MONITOR RECEIVES @%0t",$time);
       seq_item.print();
       act_mon_port.write(seq_item);
+      @(vif.evm_monitor_cb);
     end
   endtask
 endclass
