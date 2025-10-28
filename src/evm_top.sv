@@ -1,54 +1,68 @@
-`include "evm_.sv"
-`include "afifo_pkg.sv"
+`include "evm_interface.sv"
+`include "evm_package.sv"
 `include "design.sv"
-//`include "uvm_macros.svh"
+`include "uvm_macros.svh"
 
 import uvm_pkg::*;
-import afifo_pkg::*;
+import evm_pkg::*;
 
 module top();
   
-  localparam DSIZE = 8;
-  localparam ASIZE = 4;
   
-  bit wclk, rclk, wrst_n, rrst_n;
+  bit clk,rst;
 
  
-  afifo_if  vif(rclk, wclk, rrst_n, wrst_n);
+  evm_interface  vif(clk,rst);
+  logic vote_candidate_1;
+	logic vote_candidate_2;
+	logic vote_candidate_3;
+	logic switch_on_evm;
+	logic candidate_ready;
+	logic voting_session_done;
+	logic [1:0]display_results;
+	logic display_winner;
 
-  FIFO DUT(
-    .wclk(wclk),
-    .wrst_n(wrst_n),
-    .wdata  (vif.wdata),
-    .winc  (vif.winc),
-    .wfull  (vif.wfull),
-    
-    .rclk(rclk),
-    .rrst_n (rrst_n),
-    .rdata  (vif.rdata),
-    .rinc  (vif.rinc),
-    .rempty (vif.rempty)
+	//outputs
+	logic [2:0]candidate_name;
+	logic invalid_results;
+  logic [WIDTH-1:0]results;
+  logic voting_in_progress;
+  logic voting_done;
+
+
+  EVM DUT(
+    .clk(clk),
+    .rst(rst),
+    .vote_candidate_1(vif.vote_candidate_1),
+    .vote_candidate_2(vif.vote_candidate_2),
+    .vote_candidate_3(vif.vote_candidate_3),
+		.switch_on_evm(vif.switch_on_evm),
+		.candidate_ready(vif.candidate_ready),
+		.voting_session_done(vif.voting_session_done),
+		.display_results(vif.display_results),
+		.display_winner(vif.display_winner),
+    //outputs
+    .candidate_name(vif.candidate_name),
+    .invalid_results(vif.invalid_results),
+    .results(vif.results),
+    .voting_in_progress(vif.voting_in_progress),
+    .voting_done(vif.voting_done)
   );
 
-  always #10  wclk = ~wclk;
-  always #20  rclk = ~rclk;
+  always #10  clk = ~clk;
 
   initial
   begin
-    wclk = 0;
-    rclk = 0;
-    vif.winc=0;
-    vif.rinc=0;
-    wrst_n = 0;
-    rrst_n = 0;
+    clk = 0;
+    rst = 0;
     #10;
-    wrst_n = 1;
-    rrst_n = 1;
+  
+    rst = 1;
   end
 
   initial
   begin
-    uvm_config_db #(virtual afifo_if)::set(uvm_root::get(),"*","vif",vif);
+    uvm_config_db #(virtual evm_interface)::set(uvm_root::get(),"*","vif",vif);
 
     $dumpfile("dump.vcd");
     $dumpvars;
