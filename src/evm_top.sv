@@ -24,6 +24,7 @@ module top();
 		.voting_session_done(vif.voting_session_done),
 		.display_results(vif.display_results),
 		.display_winner(vif.display_winner),
+    
     //outputs
     .candidate_name(vif.candidate_name),
     .invalid_results(vif.invalid_results),
@@ -53,7 +54,7 @@ module top();
 
   initial
   begin
-    run_test("test1");
+    run_test("pure_maj_test");
     #100 $finish;
   end
  endmodule
