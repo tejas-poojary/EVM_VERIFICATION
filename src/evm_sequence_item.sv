@@ -1,3 +1,4 @@
+`include "evm_defines.sv"
 class evm_sequence_item extends uvm_sequence_item;
   //inputs
   rand bit vote_candidate_1;
@@ -12,7 +13,7 @@ class evm_sequence_item extends uvm_sequence_item;
 	//outputs
 	bit [2:0]candidate_name;
 	bit invalid_results;
-  bit [7-1:0]results;
+  bit [`WIDTH-1:0]results;
   bit voting_in_progress;
   bit voting_done;
 

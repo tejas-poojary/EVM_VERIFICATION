@@ -33,7 +33,7 @@ module top();
     .voting_done(vif.voting_done)
   );
 
-  always #10  clk = ~clk;
+  always #5  clk = ~clk;
 
   initial
   begin
@@ -47,9 +47,6 @@ module top();
   initial
   begin
     uvm_config_db #(virtual evm_interface)::set(uvm_root::get(),"*","evm_inf",vif);
-
-    $dumpfile("dump.vcd");
-    $dumpvars;
   end
 
   initial

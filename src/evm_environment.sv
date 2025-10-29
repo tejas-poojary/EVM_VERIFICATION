@@ -26,7 +26,7 @@ super.connect_phase(phase);
 evm_active_agent.act_mon.act_mon_port.connect(scb.act_mon_scb_imp);
 evm_active_agent.act_mon.act_mon_port.connect(cov.analysis_export);
 
-evm_passive_agent.pas_mon.pass_mon_port.connect(scb.pas_mon_scb_imp);
+evm_passive_agent.pas_mon.pass_mon_port.connect(scb.pass_mon_scb_imp);
 evm_passive_agent.pas_mon.pass_mon_port.connect(cov.pass_mon_sub_imp);
 endfunction
 
