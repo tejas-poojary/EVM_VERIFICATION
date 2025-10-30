@@ -16,7 +16,7 @@ class evm_driver extends uvm_driver#(evm_sequence_item);
 
  virtual task run_phase(uvm_phase phase);
   super.run_phase(phase);
-  //repeat(2)@(vif_drv.evm_driver_cb);
+  repeat(2)@(vif_drv.evm_driver_cb);
   forever begin
    seq_item_port.get_next_item(req);
    drive();

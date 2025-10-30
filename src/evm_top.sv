@@ -51,7 +51,7 @@ module top();
 
   initial
   begin
-    run_test("pure_maj_test");
+    run_test("maj_regression_test");
     #100 $finish;
   end
  endmodule

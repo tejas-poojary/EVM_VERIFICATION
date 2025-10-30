@@ -61,7 +61,8 @@ class evm_scoreboard extends uvm_scoreboard;
     end
   endtask
 
-  task evm_reference_model(input  evm_sequence_item inp_seq,ref evm_sequence_item exp_out);
+  task evm_reference_model(input  evm_sequence_item inp_seq,
+                           ref evm_sequence_item exp_out);
     //to store the index of the candidate with maximum votes
         int max_idx;
     //maximum votes
@@ -84,148 +85,149 @@ class evm_scoreboard extends uvm_scoreboard;
       ready = 0;
     end : EVM_SWITCH_OFF
 
-    else 
-      begin:EVM_ON
-       
+    else begin
        // Flag_ready for candidate_selection
-        if(inp_seq.candidate_ready)
-          begin:candidate_ready
-           ready=1;    //indicates that we have moved from waiting_for_candidate to waiting_for_candidate_to_vote state
-           candidate_ready_count = 0;
-           exp_out.voting_in_progress = 1;
-          end
-        else 
-          begin
-           candidate_ready_count++;
-          end
+      if(inp_seq.candidate_ready)begin:candidate_ready
+         ready=1;    //indicates that we have moved from waiting_for_candidate to waiting_for_candidate_to_vote state
+         candidate_ready_count = 0;
+         exp_out.voting_in_progress = 1;
+     end
+       else begin
+         candidate_ready_count++;
+       end
 
         // vote_candidate_x
-        if(~inp_seq.candidate_ready && ready && inp_seq.vote_candidate_1)
-          begin
-            waiting_for_candidate_to_vote_count=0;
-            vote_candidate_1++;
-            ready = 0;
-            exp_out.voting_in_progress = 0;
-          end
-        else if(~inp_seq.candidate_ready && ready && inp_seq.vote_candidate_2 )
-          begin
-            waiting_for_candidate_to_vote_count=0;
-            vote_candidate_2++;
-            ready = 0;
-            exp_out.voting_in_progress = 0;
-          end
-        else if(~inp_seq.candidate_ready && ready && inp_seq.vote_candidate_3)
-          begin
-            waiting_for_candidate_to_vote_count=0;
-            vote_candidate_3++;
-            ready = 0;
-            exp_out.voting_in_progress = 0;
-          end
-        else if(ready && ~inp_seq.candidate_ready)
-          begin
-            waiting_for_candidate_to_vote_count++;
-          end
-      end
+        if(~inp_seq.candidate_ready && ready && inp_seq.vote_candidate_1)begin
+           waiting_for_candidate_to_vote_count=0;
+           vote_candidate_1++;
+           ready = 0;
+           exp_out.voting_in_progress = 0;
+         end
+        else if(~inp_seq.candidate_ready && ready && inp_seq.vote_candidate_2 )begin
+           waiting_for_candidate_to_vote_count=0;
+           vote_candidate_2++;
+           ready = 0;
+           exp_out.voting_in_progress = 0;
+         end
+        else if(~inp_seq.candidate_ready && ready && inp_seq.vote_candidate_3)begin
+           waiting_for_candidate_to_vote_count=0;
+           vote_candidate_3++;
+           ready = 0;
+           exp_out.voting_in_progress = 0;
+         end
+        else if(ready && ~inp_seq.candidate_ready)begin
+           waiting_for_candidate_to_vote_count++;
+         end
+       end
 
     $display("candidate_1_vote=%0d ||candidate_2_vote=%0d ||candidate_3_vote=%0d",vote_candidate_1,vote_candidate_2,vote_candidate_3);
 
     // voting_session_done
-    if(inp_seq.voting_session_done &&  inp_seq.switch_on_evm)
-     begin
-       exp_out.voting_done = 1;
-     end
+    if(inp_seq.voting_session_done &&  inp_seq.switch_on_evm)begin
+      exp_out.voting_done = 1;
+ end
 
-    temp_votes.delete();
-    idx_map.delete();
-    tie = 0;
+  temp_votes.delete();
+  idx_map.delete();
+  tie = 0;
 
-    vote = '{vote_candidate_1, vote_candidate_2, vote_candidate_3};
-    for (int i = 0; i < `NUM_CANDIDATES; i++) 
-      begin
-       temp_votes.push_back(vote[i]);
-       idx_map.push_back(i);
-      end
-    // Find max and check tie in one pass
-    max_val = temp_votes[0];
+  vote = '{vote_candidate_1, vote_candidate_2, vote_candidate_3};
+  for (int i = 0; i < `NUM_CANDIDATES; i++) begin
+    temp_votes.push_back(vote[i]);
+    idx_map.push_back(i);
+  end
+  // Find max and check tie in one pass
+  max_val = temp_votes[0];
 
-    for (int i = 1; i < temp_votes.size(); i++) 
-      begin
-      if (temp_votes[i] > max_val) 
-       begin
-        max_val = temp_votes[i];
-        max_idx = i;
-        tie = 0;
-       end
-      else if (temp_votes[i] == max_val) 
-       begin
-        tie = 1;
-       end
-      end
+  for (int i = 1; i < temp_votes.size(); i++) begin
+    if (temp_votes[i] > max_val) begin
+      max_val = temp_votes[i];
+      max_idx = i;
+      tie = 0;
+    end
+    else if (temp_votes[i] == max_val) begin
+      tie = 1;
+    end
+  end
+ $display("tie = %0d",tie);
+
 // ----------------------
 // Decide final result
 // ----------------------
-  if ((inp_seq.voting_session_done && inp_seq.display_winner) ||(candidate_ready_count == 100 && inp_seq.display_winner)) 
-    begin
-     if (tie)
-      exp_out.invalid_results = 1;
-     else 
-      begin
-        exp_out.invalid_results = 0;
-        exp_out.results = max_val;
-        exp_out.candidate_name = idx_map[max_idx] + 1; // Candidate index → name
-      end
-    end
+  if ((inp_seq.voting_session_done && inp_seq.display_winner) ||
+    (candidate_ready_count == 100 && inp_seq.display_winner)) begin
+    if (tie)begin
+     exp_out.invalid_results = 1;
+     exp_out.results = 0;
+     exp_out.candidate_name = 0;
+ end
+   else begin
+     exp_out.invalid_results = 0;
+     exp_out.results = max_val;
+     exp_out.candidate_name = idx_map[max_idx] + 1; // Candidate index → name
+   end
+end
 // ----------------------
 // Display individual results
 // ----------------------
-else if (inp_seq.voting_session_done) 
-  begin
-   exp_out.candidate_name = (inp_seq.display_results) + 1;
-   exp_out.results = vote[inp_seq.display_results];
-  end
-  $display("candidate_ready_count = %0d || waiting_for_candidate_to_count = %0d",candidate_ready_count,waiting_for_candidate_to_vote_count);
-     
-  if(candidate_ready_count==100)
-    begin
-      exp_out.voting_done = 1;
-      candidate_ready_count=0;
-    end
+else if (inp_seq.voting_session_done) begin
+  if(tie)begin
+       exp_out.invalid_results = 1;
+       exp_out.results = 0;
+       exp_out.candidate_name = 0;
 
-  if(waiting_for_candidate_to_vote_count==100)
-    begin
+  end
+  else begin
+    exp_out.candidate_name = (inp_seq.display_results) + 1;
+    exp_out.results = vote[inp_seq.display_results];
+end
+end
+  $display("candidate_ready_count = %0d || waiting_for_candidate_to_count = %0d",candidate_ready_count,waiting_for_candidate_to_vote_count);
+     if(candidate_ready_count==100)
+      begin
+         exp_out.voting_done = 1;
+        candidate_ready_count=0;
+      end
+
+     if(waiting_for_candidate_to_vote_count==100)
+      begin
        exp_out.voting_in_progress = 0;
        waiting_for_candidate_to_vote_count=0;
-    end
+      end
 endtask
 
 task compare_exp_act_res(input  evm_sequence_item exp_out,input evm_sequence_item act_out);
-
-   if(exp_out.voting_in_progress === act_out.voting_in_progress)
+    bit match_flag = 1;
+   /* if(exp_out.voting_in_progress === act_out.voting_in_progress)
       `uvm_info(get_type_name(), $sformatf("VOTING_IN_PROGRESS HAS MATCHED\n exp : %0d | act : %0d",exp_out.voting_in_progress,act_out.voting_in_progress), UVM_LOW)
-   else
+    else
       `uvm_info(get_type_name(), $sformatf("VOTING_IN_PROGRESS HAS MISMATCHED\n exp : %0d | act : %0d",exp_out.voting_in_progress,act_out.voting_in_progress), UVM_LOW)
-
-   if(exp_out.voting_done === act_out.voting_done)
+*/
+    if(exp_out.voting_done === act_out.voting_done)
       `uvm_info(get_type_name(), $sformatf("VOTING_DONE HAS MATCHED\n exp : %0d | act : %0d",exp_out.voting_done,act_out.voting_done), UVM_LOW)
-   else
+  else begin
       `uvm_info(get_type_name(), $sformatf("VOTING_DONE HAS MISMATCHED\n exp : %0d | act : %0d",exp_out.voting_done,act_out.voting_done), UVM_LOW)
-
-   if(exp_out.invalid_results === act_out.invalid_results)
+        match_flag = 0;
+  end
+    if(exp_out.invalid_results === act_out.invalid_results)
       `uvm_info(get_type_name(), $sformatf("INVALID_RESULT HAS MATCHED\n exp : %0d | act : %0d ",exp_out.invalid_results,act_out.invalid_results), UVM_LOW)
-   else
+  else begin
       `uvm_info(get_type_name(), $sformatf("INVALID_RESULT HAS MISMATCHED\n exp : %0d | act : %0d ",exp_out.invalid_results,act_out.invalid_results), UVM_LOW)
-
-   if(exp_out.results === act_out.results)
+match_flag = 0;
+end
+    if(exp_out.results === act_out.results)
       `uvm_info(get_type_name(), $sformatf("RESULTS HAS MATCHED\n exp : %0d | act : %0d",exp_out.results,act_out.results), UVM_LOW)
-   else
+  else begin
       `uvm_info(get_type_name(), $sformatf("RESULTS HAS MISMATCHED\n exp : %0d | act : %0d",exp_out.results,act_out.results), UVM_LOW)
-
-   if(exp_out.candidate_name === act_out.candidate_name)
+    match_flag = 0;
+end
+    if(exp_out.candidate_name === act_out.candidate_name)
       `uvm_info(get_type_name(), $sformatf("CANDIDATE_NAME HAS MATCHED\n exp : %0d | act : %0d",exp_out.candidate_name,act_out.candidate_name), UVM_LOW)
-   else
+  else begin
       `uvm_info(get_type_name(), $sformatf("CANDIDATE_NAME HAS MISMATCHED\n exp : %0d | act : %0d",exp_out.candidate_name,act_out.candidate_name), UVM_LOW)
-
-   if(exp_out.compare(act_out))
+    match_flag = 0;
+end
+    if(match_flag)
      begin
       MATCH++;
       `uvm_info(get_full_name(), "MATCH", UVM_LOW)

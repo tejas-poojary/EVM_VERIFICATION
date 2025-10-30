@@ -14,7 +14,7 @@ class evm_active_monitor extends uvm_monitor;
   endfunction
   virtual task run_phase(uvm_phase phase);
     seq_item = evm_sequence_item :: type_id :: create("seq_item");
-    repeat(1)@(vif.evm_monitor_cb);
+    repeat(3)@(vif.evm_monitor_cb);
     forever begin
       seq_item.vote_candidate_1 = vif.vote_candidate_1;
       seq_item.vote_candidate_2 = vif.vote_candidate_2;
