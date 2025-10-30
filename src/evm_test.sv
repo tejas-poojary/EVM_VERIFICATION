@@ -237,6 +237,28 @@ class multiple_candidate_selection_test extends uvm_test;
  endtask
 endclass
 
+class voting_session_done2_idle_test extends uvm_test;
+ `uvm_component_utils(voting_session_done2_idle_test)
+  evm_environment env;
+        
+ function new(string name = "voting_session_done2_idle_test", uvm_component parent = null);
+  super.new(name, parent);
+ endfunction
+   
+ function void build_phase(uvm_phase phase);
+  super.build_phase(phase);
+  env = evm_environment::type_id::create("env",this);
+ endfunction
+
+ virtual task run_phase(uvm_phase phase);
+  voting_session_done2_idle_seq seq;
+  super.run_phase(phase);
+  phase.raise_objection(this, "Objection Raised");
+  seq = voting_session_done2_idle_seq::type_id::create("seq");
+  seq.start(env.evm_active_agent.seqr);
+  phase.drop_objection(this, "Objection Dropped");
+ endtask
+endclass
 
 class maj_regression_test extends uvm_test;
  `uvm_component_utils(maj_regression_test)
@@ -259,5 +281,4 @@ class maj_regression_test extends uvm_test;
    seq.start(env.evm_active_agent.seqr);
    phase.drop_objection(this, "Objection Dropped");
   endtask
-endclass
- 
+endclass 

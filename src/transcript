@@ -1,0 +1,1708 @@
+# vsim -c top 
+# Start time: 11:54:34 on Oct 30,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: evm_top.sv(16): (vopt-2241) Connection width does not match width of port 'candidate_name'. The port definition is at: design.sv(12).
+# //  Questa Sim
+# //  Version 10.6c linux Jul 25 2017
+# //
+# //  Copyright 1991-2017 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.evm_interface(fast)
+# Loading mtiUvm.uvm_pkg
+# Loading work.evm_pkg(fast)
+# Loading work.evm_top_sv_unit(fast)
+# Loading work.top(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test pure_maj_test...
+# UVM_INFO evm_scoreboard.sv(25) @ 0: uvm_test_top.env.scb [evm_scoreboard] VIF not found!!
+# driving                   0
+# ACTIVE MONITOR RECEIVES @5
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# driving                   5
+# PASSIVE MONITOR RECEIVES @15
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @755 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from passive monitor:: Packet
+# PASSIVE MONITOR RECEIVES @15
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @761 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# ACTIVE MONITOR RECEIVES @15
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     1    
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     1    
+#   candidate_ready      integral           1     1    
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     3    
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# candidate_1_vote=0 ||candidate_2_vote=0 ||candidate_3_vote=0
+# candidate_ready_count = 0 || waiting_for_candidate_to_count = 1
+# UVM_INFO evm_scoreboard.sv(181) @ 15: uvm_test_top.env.scb [evm_scoreboard] VOTING_IN_PROGRESS HAS MISMATCHED
+#  exp : 1 | act : 0
+# UVM_INFO evm_scoreboard.sv(184) @ 15: uvm_test_top.env.scb [evm_scoreboard] VOTING_DONE HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(189) @ 15: uvm_test_top.env.scb [evm_scoreboard] INVALID_RESULT HAS MATCHED
+#  exp : 0 | act : 0 
+# UVM_INFO evm_scoreboard.sv(194) @ 15: uvm_test_top.env.scb [evm_scoreboard] RESULTS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(199) @ 15: uvm_test_top.env.scb [evm_scoreboard] CANDIDATE_NAME HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO @ 15: reporter [MISCMP] Miscompare for exp_out.voting_in_progress: lhs = 'h1 : rhs = 'h0
+# UVM_INFO @ 15: reporter [MISCMP] 1 Miscompare(s) for object seq_item@755 vs. exp_out@806
+# UVM_INFO evm_scoreboard.sv(211) @ 15: uvm_test_top.env.scb [uvm_test_top.env.scb] MISMATCH
+# driving                  15
+# ACTIVE MONITOR RECEIVES @25
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     1    
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     1    
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# PASSIVE MONITOR RECEIVES @25
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @761 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# PASSIVE MONITOR RECEIVES @25
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @755 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from passive monitor:: Packet
+# candidate_1_vote=0 ||candidate_2_vote=0 ||candidate_3_vote=0
+# candidate_ready_count = 1 || waiting_for_candidate_to_count = 1
+# UVM_INFO evm_scoreboard.sv(179) @ 25: uvm_test_top.env.scb [evm_scoreboard] VOTING_IN_PROGRESS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(184) @ 25: uvm_test_top.env.scb [evm_scoreboard] VOTING_DONE HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(189) @ 25: uvm_test_top.env.scb [evm_scoreboard] INVALID_RESULT HAS MATCHED
+#  exp : 0 | act : 0 
+# UVM_INFO evm_scoreboard.sv(194) @ 25: uvm_test_top.env.scb [evm_scoreboard] RESULTS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(199) @ 25: uvm_test_top.env.scb [evm_scoreboard] CANDIDATE_NAME HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(206) @ 25: uvm_test_top.env.scb [uvm_test_top.env.scb] MATCH
+# driving                  25
+# PASSIVE MONITOR RECEIVES @35
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @755 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     1    
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from passive monitor:: Packet
+# PASSIVE MONITOR RECEIVES @35
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @761 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     1    
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# ACTIVE MONITOR RECEIVES @35
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     1    
+#   switch_on_evm        integral           1     1    
+#   candidate_ready      integral           1     1    
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     2    
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# candidate_1_vote=0 ||candidate_2_vote=0 ||candidate_3_vote=0
+# candidate_ready_count = 0 || waiting_for_candidate_to_count = 2
+# UVM_INFO evm_scoreboard.sv(179) @ 35: uvm_test_top.env.scb [evm_scoreboard] VOTING_IN_PROGRESS HAS MATCHED
+#  exp : 1 | act : 1
+# UVM_INFO evm_scoreboard.sv(184) @ 35: uvm_test_top.env.scb [evm_scoreboard] VOTING_DONE HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(189) @ 35: uvm_test_top.env.scb [evm_scoreboard] INVALID_RESULT HAS MATCHED
+#  exp : 0 | act : 0 
+# UVM_INFO evm_scoreboard.sv(194) @ 35: uvm_test_top.env.scb [evm_scoreboard] RESULTS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(199) @ 35: uvm_test_top.env.scb [evm_scoreboard] CANDIDATE_NAME HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(206) @ 35: uvm_test_top.env.scb [uvm_test_top.env.scb] MATCH
+# driving                  35
+# ACTIVE MONITOR RECEIVES @45
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     1    
+#   switch_on_evm        integral           1     1    
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# PASSIVE MONITOR RECEIVES @45
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @761 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# PASSIVE MONITOR RECEIVES @45
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @755 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from passive monitor:: Packet
+# candidate_1_vote=0 ||candidate_2_vote=0 ||candidate_3_vote=0
+# candidate_ready_count = 1 || waiting_for_candidate_to_count = 2
+# UVM_INFO evm_scoreboard.sv(179) @ 45: uvm_test_top.env.scb [evm_scoreboard] VOTING_IN_PROGRESS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(184) @ 45: uvm_test_top.env.scb [evm_scoreboard] VOTING_DONE HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(189) @ 45: uvm_test_top.env.scb [evm_scoreboard] INVALID_RESULT HAS MATCHED
+#  exp : 0 | act : 0 
+# UVM_INFO evm_scoreboard.sv(194) @ 45: uvm_test_top.env.scb [evm_scoreboard] RESULTS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(199) @ 45: uvm_test_top.env.scb [evm_scoreboard] CANDIDATE_NAME HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(206) @ 45: uvm_test_top.env.scb [uvm_test_top.env.scb] MATCH
+# driving                  45
+# PASSIVE MONITOR RECEIVES @55
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @755 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     1    
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from passive monitor:: Packet
+# PASSIVE MONITOR RECEIVES @55
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @761 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     1    
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# ACTIVE MONITOR RECEIVES @55
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     1    
+#   switch_on_evm        integral           1     1    
+#   candidate_ready      integral           1     1    
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd1  
+#   display_winner       integral           1     1    
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# candidate_1_vote=0 ||candidate_2_vote=0 ||candidate_3_vote=0
+# candidate_ready_count = 0 || waiting_for_candidate_to_count = 3
+# UVM_INFO evm_scoreboard.sv(179) @ 55: uvm_test_top.env.scb [evm_scoreboard] VOTING_IN_PROGRESS HAS MATCHED
+#  exp : 1 | act : 1
+# UVM_INFO evm_scoreboard.sv(184) @ 55: uvm_test_top.env.scb [evm_scoreboard] VOTING_DONE HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(189) @ 55: uvm_test_top.env.scb [evm_scoreboard] INVALID_RESULT HAS MATCHED
+#  exp : 0 | act : 0 
+# UVM_INFO evm_scoreboard.sv(194) @ 55: uvm_test_top.env.scb [evm_scoreboard] RESULTS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(199) @ 55: uvm_test_top.env.scb [evm_scoreboard] CANDIDATE_NAME HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(206) @ 55: uvm_test_top.env.scb [uvm_test_top.env.scb] MATCH
+# driving                  55
+# ACTIVE MONITOR RECEIVES @65
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     1    
+#   switch_on_evm        integral           1     1    
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     2    
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# PASSIVE MONITOR RECEIVES @65
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @761 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# PASSIVE MONITOR RECEIVES @65
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @755 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from passive monitor:: Packet
+# candidate_1_vote=0 ||candidate_2_vote=0 ||candidate_3_vote=0
+# candidate_ready_count = 1 || waiting_for_candidate_to_count = 3
+# UVM_INFO evm_scoreboard.sv(179) @ 65: uvm_test_top.env.scb [evm_scoreboard] VOTING_IN_PROGRESS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(184) @ 65: uvm_test_top.env.scb [evm_scoreboard] VOTING_DONE HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(189) @ 65: uvm_test_top.env.scb [evm_scoreboard] INVALID_RESULT HAS MATCHED
+#  exp : 0 | act : 0 
+# UVM_INFO evm_scoreboard.sv(194) @ 65: uvm_test_top.env.scb [evm_scoreboard] RESULTS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(199) @ 65: uvm_test_top.env.scb [evm_scoreboard] CANDIDATE_NAME HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(206) @ 65: uvm_test_top.env.scb [uvm_test_top.env.scb] MATCH
+# driving                  65
+# PASSIVE MONITOR RECEIVES @75
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @755 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     1    
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from passive monitor:: Packet
+# PASSIVE MONITOR RECEIVES @75
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @761 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     1    
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# ACTIVE MONITOR RECEIVES @75
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     1    
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     1    
+#   candidate_ready      integral           1     1    
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd1  
+#   display_winner       integral           1     1    
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# candidate_1_vote=0 ||candidate_2_vote=0 ||candidate_3_vote=0
+# candidate_ready_count = 0 || waiting_for_candidate_to_count = 4
+# UVM_INFO evm_scoreboard.sv(179) @ 75: uvm_test_top.env.scb [evm_scoreboard] VOTING_IN_PROGRESS HAS MATCHED
+#  exp : 1 | act : 1
+# UVM_INFO evm_scoreboard.sv(184) @ 75: uvm_test_top.env.scb [evm_scoreboard] VOTING_DONE HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(189) @ 75: uvm_test_top.env.scb [evm_scoreboard] INVALID_RESULT HAS MATCHED
+#  exp : 0 | act : 0 
+# UVM_INFO evm_scoreboard.sv(194) @ 75: uvm_test_top.env.scb [evm_scoreboard] RESULTS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(199) @ 75: uvm_test_top.env.scb [evm_scoreboard] CANDIDATE_NAME HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(206) @ 75: uvm_test_top.env.scb [uvm_test_top.env.scb] MATCH
+# driving                  75
+# ACTIVE MONITOR RECEIVES @85
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     1    
+#   switch_on_evm        integral           1     1    
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     1    
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# PASSIVE MONITOR RECEIVES @85
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @761 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# PASSIVE MONITOR RECEIVES @85
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @755 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from passive monitor:: Packet
+# candidate_1_vote=0 ||candidate_2_vote=0 ||candidate_3_vote=0
+# candidate_ready_count = 1 || waiting_for_candidate_to_count = 4
+# UVM_INFO evm_scoreboard.sv(179) @ 85: uvm_test_top.env.scb [evm_scoreboard] VOTING_IN_PROGRESS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(184) @ 85: uvm_test_top.env.scb [evm_scoreboard] VOTING_DONE HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(189) @ 85: uvm_test_top.env.scb [evm_scoreboard] INVALID_RESULT HAS MATCHED
+#  exp : 0 | act : 0 
+# UVM_INFO evm_scoreboard.sv(194) @ 85: uvm_test_top.env.scb [evm_scoreboard] RESULTS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(199) @ 85: uvm_test_top.env.scb [evm_scoreboard] CANDIDATE_NAME HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(206) @ 85: uvm_test_top.env.scb [uvm_test_top.env.scb] MATCH
+# driving                  85
+# PASSIVE MONITOR RECEIVES @95
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @755 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     1    
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from passive monitor:: Packet
+# PASSIVE MONITOR RECEIVES @95
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @761 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     1    
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# ACTIVE MONITOR RECEIVES @95
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     1    
+#   switch_on_evm        integral           1     1    
+#   candidate_ready      integral           1     1    
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     2    
+#   display_winner       integral           1     1    
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# candidate_1_vote=0 ||candidate_2_vote=0 ||candidate_3_vote=0
+# candidate_ready_count = 0 || waiting_for_candidate_to_count = 5
+# UVM_INFO evm_scoreboard.sv(179) @ 95: uvm_test_top.env.scb [evm_scoreboard] VOTING_IN_PROGRESS HAS MATCHED
+#  exp : 1 | act : 1
+# UVM_INFO evm_scoreboard.sv(184) @ 95: uvm_test_top.env.scb [evm_scoreboard] VOTING_DONE HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(189) @ 95: uvm_test_top.env.scb [evm_scoreboard] INVALID_RESULT HAS MATCHED
+#  exp : 0 | act : 0 
+# UVM_INFO evm_scoreboard.sv(194) @ 95: uvm_test_top.env.scb [evm_scoreboard] RESULTS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(199) @ 95: uvm_test_top.env.scb [evm_scoreboard] CANDIDATE_NAME HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(206) @ 95: uvm_test_top.env.scb [uvm_test_top.env.scb] MATCH
+# driving                  95
+# ACTIVE MONITOR RECEIVES @105
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     1    
+#   switch_on_evm        integral           1     1    
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     2    
+#   display_winner       integral           1     1    
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# PASSIVE MONITOR RECEIVES @105
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @761 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# PASSIVE MONITOR RECEIVES @105
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @755 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from passive monitor:: Packet
+# candidate_1_vote=0 ||candidate_2_vote=0 ||candidate_3_vote=0
+# candidate_ready_count = 1 || waiting_for_candidate_to_count = 5
+# UVM_INFO evm_scoreboard.sv(179) @ 105: uvm_test_top.env.scb [evm_scoreboard] VOTING_IN_PROGRESS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(184) @ 105: uvm_test_top.env.scb [evm_scoreboard] VOTING_DONE HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(189) @ 105: uvm_test_top.env.scb [evm_scoreboard] INVALID_RESULT HAS MATCHED
+#  exp : 0 | act : 0 
+# UVM_INFO evm_scoreboard.sv(194) @ 105: uvm_test_top.env.scb [evm_scoreboard] RESULTS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(199) @ 105: uvm_test_top.env.scb [evm_scoreboard] CANDIDATE_NAME HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(206) @ 105: uvm_test_top.env.scb [uvm_test_top.env.scb] MATCH
+# driving                 105
+# PASSIVE MONITOR RECEIVES @115
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @755 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     1    
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from passive monitor:: Packet
+# PASSIVE MONITOR RECEIVES @115
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @761 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     1    
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# ACTIVE MONITOR RECEIVES @115
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     1    
+#   switch_on_evm        integral           1     1    
+#   candidate_ready      integral           1     1    
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# candidate_1_vote=0 ||candidate_2_vote=0 ||candidate_3_vote=0
+# candidate_ready_count = 0 || waiting_for_candidate_to_count = 6
+# UVM_INFO evm_scoreboard.sv(179) @ 115: uvm_test_top.env.scb [evm_scoreboard] VOTING_IN_PROGRESS HAS MATCHED
+#  exp : 1 | act : 1
+# UVM_INFO evm_scoreboard.sv(184) @ 115: uvm_test_top.env.scb [evm_scoreboard] VOTING_DONE HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(189) @ 115: uvm_test_top.env.scb [evm_scoreboard] INVALID_RESULT HAS MATCHED
+#  exp : 0 | act : 0 
+# UVM_INFO evm_scoreboard.sv(194) @ 115: uvm_test_top.env.scb [evm_scoreboard] RESULTS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(199) @ 115: uvm_test_top.env.scb [evm_scoreboard] CANDIDATE_NAME HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(206) @ 115: uvm_test_top.env.scb [uvm_test_top.env.scb] MATCH
+# driving                 115
+# ACTIVE MONITOR RECEIVES @125
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     1    
+#   switch_on_evm        integral           1     1    
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd1  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# PASSIVE MONITOR RECEIVES @125
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @761 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# PASSIVE MONITOR RECEIVES @125
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @755 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from passive monitor:: Packet
+# candidate_1_vote=0 ||candidate_2_vote=0 ||candidate_3_vote=0
+# candidate_ready_count = 1 || waiting_for_candidate_to_count = 6
+# UVM_INFO evm_scoreboard.sv(179) @ 125: uvm_test_top.env.scb [evm_scoreboard] VOTING_IN_PROGRESS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(184) @ 125: uvm_test_top.env.scb [evm_scoreboard] VOTING_DONE HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(189) @ 125: uvm_test_top.env.scb [evm_scoreboard] INVALID_RESULT HAS MATCHED
+#  exp : 0 | act : 0 
+# UVM_INFO evm_scoreboard.sv(194) @ 125: uvm_test_top.env.scb [evm_scoreboard] RESULTS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(199) @ 125: uvm_test_top.env.scb [evm_scoreboard] CANDIDATE_NAME HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(206) @ 125: uvm_test_top.env.scb [uvm_test_top.env.scb] MATCH
+# driving                 125
+# PASSIVE MONITOR RECEIVES @135
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @755 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     1    
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from passive monitor:: Packet
+# PASSIVE MONITOR RECEIVES @135
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @761 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     1    
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# ACTIVE MONITOR RECEIVES @135
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     1    
+#   switch_on_evm        integral           1     1    
+#   candidate_ready      integral           1     1    
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     2    
+#   display_winner       integral           1     1    
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# candidate_1_vote=0 ||candidate_2_vote=0 ||candidate_3_vote=0
+# candidate_ready_count = 0 || waiting_for_candidate_to_count = 7
+# UVM_INFO evm_scoreboard.sv(179) @ 135: uvm_test_top.env.scb [evm_scoreboard] VOTING_IN_PROGRESS HAS MATCHED
+#  exp : 1 | act : 1
+# UVM_INFO evm_scoreboard.sv(184) @ 135: uvm_test_top.env.scb [evm_scoreboard] VOTING_DONE HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(189) @ 135: uvm_test_top.env.scb [evm_scoreboard] INVALID_RESULT HAS MATCHED
+#  exp : 0 | act : 0 
+# UVM_INFO evm_scoreboard.sv(194) @ 135: uvm_test_top.env.scb [evm_scoreboard] RESULTS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(199) @ 135: uvm_test_top.env.scb [evm_scoreboard] CANDIDATE_NAME HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(206) @ 135: uvm_test_top.env.scb [uvm_test_top.env.scb] MATCH
+# driving                 135
+# ACTIVE MONITOR RECEIVES @145
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     1    
+#   switch_on_evm        integral           1     1    
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     2    
+#   display_winner       integral           1     1    
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# PASSIVE MONITOR RECEIVES @145
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @761 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# PASSIVE MONITOR RECEIVES @145
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @755 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from passive monitor:: Packet
+# candidate_1_vote=0 ||candidate_2_vote=0 ||candidate_3_vote=0
+# candidate_ready_count = 1 || waiting_for_candidate_to_count = 7
+# UVM_INFO evm_scoreboard.sv(179) @ 145: uvm_test_top.env.scb [evm_scoreboard] VOTING_IN_PROGRESS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(184) @ 145: uvm_test_top.env.scb [evm_scoreboard] VOTING_DONE HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(189) @ 145: uvm_test_top.env.scb [evm_scoreboard] INVALID_RESULT HAS MATCHED
+#  exp : 0 | act : 0 
+# UVM_INFO evm_scoreboard.sv(194) @ 145: uvm_test_top.env.scb [evm_scoreboard] RESULTS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(199) @ 145: uvm_test_top.env.scb [evm_scoreboard] CANDIDATE_NAME HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(206) @ 145: uvm_test_top.env.scb [uvm_test_top.env.scb] MATCH
+# driving                 145
+# PASSIVE MONITOR RECEIVES @155
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @755 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     1    
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from passive monitor:: Packet
+# PASSIVE MONITOR RECEIVES @155
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @761 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     1    
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# ACTIVE MONITOR RECEIVES @155
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     1    
+#   switch_on_evm        integral           1     1    
+#   candidate_ready      integral           1     1    
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# candidate_1_vote=0 ||candidate_2_vote=0 ||candidate_3_vote=0
+# candidate_ready_count = 0 || waiting_for_candidate_to_count = 8
+# UVM_INFO evm_scoreboard.sv(179) @ 155: uvm_test_top.env.scb [evm_scoreboard] VOTING_IN_PROGRESS HAS MATCHED
+#  exp : 1 | act : 1
+# UVM_INFO evm_scoreboard.sv(184) @ 155: uvm_test_top.env.scb [evm_scoreboard] VOTING_DONE HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(189) @ 155: uvm_test_top.env.scb [evm_scoreboard] INVALID_RESULT HAS MATCHED
+#  exp : 0 | act : 0 
+# UVM_INFO evm_scoreboard.sv(194) @ 155: uvm_test_top.env.scb [evm_scoreboard] RESULTS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(199) @ 155: uvm_test_top.env.scb [evm_scoreboard] CANDIDATE_NAME HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(206) @ 155: uvm_test_top.env.scb [uvm_test_top.env.scb] MATCH
+# driving                 155
+# ACTIVE MONITOR RECEIVES @165
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     1    
+#   switch_on_evm        integral           1     1    
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     1    
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# PASSIVE MONITOR RECEIVES @165
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @761 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# PASSIVE MONITOR RECEIVES @165
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @755 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from passive monitor:: Packet
+# candidate_1_vote=0 ||candidate_2_vote=0 ||candidate_3_vote=0
+# candidate_ready_count = 1 || waiting_for_candidate_to_count = 8
+# UVM_INFO evm_scoreboard.sv(179) @ 165: uvm_test_top.env.scb [evm_scoreboard] VOTING_IN_PROGRESS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(184) @ 165: uvm_test_top.env.scb [evm_scoreboard] VOTING_DONE HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(189) @ 165: uvm_test_top.env.scb [evm_scoreboard] INVALID_RESULT HAS MATCHED
+#  exp : 0 | act : 0 
+# UVM_INFO evm_scoreboard.sv(194) @ 165: uvm_test_top.env.scb [evm_scoreboard] RESULTS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(199) @ 165: uvm_test_top.env.scb [evm_scoreboard] CANDIDATE_NAME HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(206) @ 165: uvm_test_top.env.scb [uvm_test_top.env.scb] MATCH
+# driving                 165
+# PASSIVE MONITOR RECEIVES @175
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @755 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     1    
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from passive monitor:: Packet
+# PASSIVE MONITOR RECEIVES @175
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @761 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     1    
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# ACTIVE MONITOR RECEIVES @175
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     1    
+#   switch_on_evm        integral           1     1    
+#   candidate_ready      integral           1     1    
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     2    
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# candidate_1_vote=0 ||candidate_2_vote=0 ||candidate_3_vote=0
+# candidate_ready_count = 0 || waiting_for_candidate_to_count = 9
+# UVM_INFO evm_scoreboard.sv(179) @ 175: uvm_test_top.env.scb [evm_scoreboard] VOTING_IN_PROGRESS HAS MATCHED
+#  exp : 1 | act : 1
+# UVM_INFO evm_scoreboard.sv(184) @ 175: uvm_test_top.env.scb [evm_scoreboard] VOTING_DONE HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(189) @ 175: uvm_test_top.env.scb [evm_scoreboard] INVALID_RESULT HAS MATCHED
+#  exp : 0 | act : 0 
+# UVM_INFO evm_scoreboard.sv(194) @ 175: uvm_test_top.env.scb [evm_scoreboard] RESULTS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(199) @ 175: uvm_test_top.env.scb [evm_scoreboard] CANDIDATE_NAME HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(206) @ 175: uvm_test_top.env.scb [uvm_test_top.env.scb] MATCH
+# driving                 175
+# ACTIVE MONITOR RECEIVES @185
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     1    
+#   switch_on_evm        integral           1     1    
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     2    
+#   display_winner       integral           1     1    
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# PASSIVE MONITOR RECEIVES @185
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @761 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# PASSIVE MONITOR RECEIVES @185
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @755 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from passive monitor:: Packet
+# candidate_1_vote=0 ||candidate_2_vote=0 ||candidate_3_vote=0
+# candidate_ready_count = 1 || waiting_for_candidate_to_count = 9
+# UVM_INFO evm_scoreboard.sv(179) @ 185: uvm_test_top.env.scb [evm_scoreboard] VOTING_IN_PROGRESS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(184) @ 185: uvm_test_top.env.scb [evm_scoreboard] VOTING_DONE HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(189) @ 185: uvm_test_top.env.scb [evm_scoreboard] INVALID_RESULT HAS MATCHED
+#  exp : 0 | act : 0 
+# UVM_INFO evm_scoreboard.sv(194) @ 185: uvm_test_top.env.scb [evm_scoreboard] RESULTS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(199) @ 185: uvm_test_top.env.scb [evm_scoreboard] CANDIDATE_NAME HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(206) @ 185: uvm_test_top.env.scb [uvm_test_top.env.scb] MATCH
+# driving                 185
+# PASSIVE MONITOR RECEIVES @195
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @755 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     1    
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from passive monitor:: Packet
+# PASSIVE MONITOR RECEIVES @195
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @761 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     1    
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# ACTIVE MONITOR RECEIVES @195
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     1    
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     1    
+#   candidate_ready      integral           1     1    
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     1    
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# candidate_1_vote=0 ||candidate_2_vote=0 ||candidate_3_vote=0
+# candidate_ready_count = 0 || waiting_for_candidate_to_count = 10
+# UVM_INFO evm_scoreboard.sv(179) @ 195: uvm_test_top.env.scb [evm_scoreboard] VOTING_IN_PROGRESS HAS MATCHED
+#  exp : 1 | act : 1
+# UVM_INFO evm_scoreboard.sv(184) @ 195: uvm_test_top.env.scb [evm_scoreboard] VOTING_DONE HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(189) @ 195: uvm_test_top.env.scb [evm_scoreboard] INVALID_RESULT HAS MATCHED
+#  exp : 0 | act : 0 
+# UVM_INFO evm_scoreboard.sv(194) @ 195: uvm_test_top.env.scb [evm_scoreboard] RESULTS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(199) @ 195: uvm_test_top.env.scb [evm_scoreboard] CANDIDATE_NAME HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(206) @ 195: uvm_test_top.env.scb [uvm_test_top.env.scb] MATCH
+# driving                 195
+# ACTIVE MONITOR RECEIVES @205
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     1    
+#   switch_on_evm        integral           1     1    
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd1  
+#   display_winner       integral           1     1    
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# PASSIVE MONITOR RECEIVES @205
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @761 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# PASSIVE MONITOR RECEIVES @205
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @755 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from passive monitor:: Packet
+# candidate_1_vote=0 ||candidate_2_vote=0 ||candidate_3_vote=0
+# candidate_ready_count = 1 || waiting_for_candidate_to_count = 10
+# UVM_INFO evm_scoreboard.sv(179) @ 205: uvm_test_top.env.scb [evm_scoreboard] VOTING_IN_PROGRESS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(184) @ 205: uvm_test_top.env.scb [evm_scoreboard] VOTING_DONE HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(189) @ 205: uvm_test_top.env.scb [evm_scoreboard] INVALID_RESULT HAS MATCHED
+#  exp : 0 | act : 0 
+# UVM_INFO evm_scoreboard.sv(194) @ 205: uvm_test_top.env.scb [evm_scoreboard] RESULTS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(199) @ 205: uvm_test_top.env.scb [evm_scoreboard] CANDIDATE_NAME HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(206) @ 205: uvm_test_top.env.scb [uvm_test_top.env.scb] MATCH
+# driving                 205
+# PASSIVE MONITOR RECEIVES @215
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @755 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from passive monitor:: Packet
+# PASSIVE MONITOR RECEIVES @215
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @761 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# ACTIVE MONITOR RECEIVES @215
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     1    
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     1    
+#   display_results      integral           2     2    
+#   display_winner       integral           1     1    
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# candidate_1_vote=0 ||candidate_2_vote=0 ||candidate_3_vote=0
+# candidate_ready_count = 2 || waiting_for_candidate_to_count = 10
+# UVM_INFO evm_scoreboard.sv(179) @ 215: uvm_test_top.env.scb [evm_scoreboard] VOTING_IN_PROGRESS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(186) @ 215: uvm_test_top.env.scb [evm_scoreboard] VOTING_DONE HAS MISMATCHED
+#  exp : 1 | act : 0
+# UVM_INFO evm_scoreboard.sv(191) @ 215: uvm_test_top.env.scb [evm_scoreboard] INVALID_RESULT HAS MISMATCHED
+#  exp : 1 | act : 0 
+# UVM_INFO evm_scoreboard.sv(194) @ 215: uvm_test_top.env.scb [evm_scoreboard] RESULTS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(199) @ 215: uvm_test_top.env.scb [evm_scoreboard] CANDIDATE_NAME HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO @ 215: reporter [MISCMP] Miscompare for exp_out.invalid_results: lhs = 'h1 : rhs = 'h0
+# UVM_INFO @ 215: reporter [MISCMP] 1 Miscompare(s) for object seq_item@755 vs. exp_out@966
+# UVM_INFO evm_scoreboard.sv(211) @ 215: uvm_test_top.env.scb [uvm_test_top.env.scb] MISMATCH
+# driving                 215
+# ACTIVE MONITOR RECEIVES @225
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @765 
+#   vote_candidate_1     integral           1     1    
+#   vote_candidate_2     integral           1     1    
+#   vote_candidate_3     integral           1     1    
+#   switch_on_evm        integral           1     1    
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     1    
+#   display_results      integral           2     3    
+#   display_winner       integral           1     1    
+#   candidate_name       integral           3     'd0  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd0  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     'd0  
+# -----------------------------------------------------
+# Scoreboard received from active monitor:: Packet
+# PASSIVE MONITOR RECEIVES @225
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @761 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd3  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd9  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     1    
+# -----------------------------------------------------
+# PASSIVE MONITOR RECEIVES @225
+# -----------------------------------------------------
+# Name                   Type               Size  Value
+# -----------------------------------------------------
+# seq_item               evm_sequence_item  -     @755 
+#   vote_candidate_1     integral           1     'd0  
+#   vote_candidate_2     integral           1     'd0  
+#   vote_candidate_3     integral           1     'd0  
+#   switch_on_evm        integral           1     'd0  
+#   candidate_ready      integral           1     'd0  
+#   voting_session_done  integral           1     'd0  
+#   display_results      integral           2     'd0  
+#   display_winner       integral           1     'd0  
+#   candidate_name       integral           3     'd3  
+#   invalid_results      integral           1     'd0  
+#   results              integral           7     'd9  
+#   voting_in_progress   integral           1     'd0  
+#   voting_done          integral           1     1    
+# -----------------------------------------------------
+# Scoreboard received from passive monitor:: Packet
+# candidate_1_vote=0 ||candidate_2_vote=0 ||candidate_3_vote=0
+# candidate_ready_count = 3 || waiting_for_candidate_to_count = 10
+# UVM_INFO evm_scoreboard.sv(179) @ 225: uvm_test_top.env.scb [evm_scoreboard] VOTING_IN_PROGRESS HAS MATCHED
+#  exp : 0 | act : 0
+# UVM_INFO evm_scoreboard.sv(184) @ 225: uvm_test_top.env.scb [evm_scoreboard] VOTING_DONE HAS MATCHED
+#  exp : 1 | act : 1
+# UVM_INFO evm_scoreboard.sv(191) @ 225: uvm_test_top.env.scb [evm_scoreboard] INVALID_RESULT HAS MISMATCHED
+#  exp : 1 | act : 0 
+# UVM_INFO evm_scoreboard.sv(196) @ 225: uvm_test_top.env.scb [evm_scoreboard] RESULTS HAS MISMATCHED
+#  exp : 0 | act : 9
+# UVM_INFO evm_scoreboard.sv(201) @ 225: uvm_test_top.env.scb [evm_scoreboard] CANDIDATE_NAME HAS MISMATCHED
+#  exp : 0 | act : 3
+# UVM_INFO @ 225: reporter [MISCMP] Miscompare for exp_out.candidate_name: lhs = 'h0 : rhs = 'h3
+# UVM_INFO @ 225: reporter [MISCMP] 1 Miscompare(s) for object seq_item@755 vs. exp_out@970
+# UVM_INFO evm_scoreboard.sv(211) @ 225: uvm_test_top.env.scb [uvm_test_top.env.scb] MISMATCH
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 225: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO evm_subscriber.sv(65) @ 225: uvm_test_top.env.cov [evm_subscriber] [INPUT] Coverage ------> 100.00%
+# UVM_INFO evm_subscriber.sv(66) @ 225: uvm_test_top.env.cov [evm_subscriber] [OUTPUT] Coverage -----> 60.31%
+# UVM_INFO evm_scoreboard.sv(218) @ 225: uvm_test_top.env.scb [evm_scoreboard] TOTAL: 
+# MATCH : 19  | MISMATCH : 3
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :  146
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [MISCMP]     6
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# [evm_scoreboard]   112
+# [evm_subscriber]     2
+# [uvm_test_top.env.scb]    22
+# ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 225 ns  Iteration: 64  Instance: /top
+# End time: 11:54:45 on Oct 30,2025, Elapsed time: 0:00:11
+# Errors: 0, Warnings: 1

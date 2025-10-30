@@ -14,7 +14,7 @@ class evm_passive_monitor extends uvm_monitor;
   endfunction
   virtual task run_phase(uvm_phase phase);
     seq_item = evm_sequence_item :: type_id :: create("seq_item");
-    repeat(4)@(vif.evm_monitor_cb);
+    repeat(2)@(vif.evm_monitor_cb);
     forever begin
       seq_item.candidate_name = vif.candidate_name;
       seq_item.invalid_results = vif.invalid_results;
