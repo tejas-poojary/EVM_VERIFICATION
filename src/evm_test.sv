@@ -85,10 +85,10 @@ class top_2tie_test extends uvm_test;
         endfunction
 
         virtual task run_phase(uvm_phase phase);
-                top_2tie_seq seq;
+                top_2tie_seq1 seq;
                 super.run_phase(phase);
                 phase.raise_objection(this, "Objection Raised");
-                seq = top_2tie_seq::type_id::create("seq");
+                seq = top_2tie_seq1::type_id::create("seq");
                 seq.start(env.evm_active_agent.seqr);
                 phase.drop_objection(this, "Objection Dropped");
         endtask
@@ -107,10 +107,10 @@ class bottom_Two_tie_test extends uvm_test;
         endfunction
 
         virtual task run_phase(uvm_phase phase);
-                bottom_Two_tie_seq seq;
+                bottom_Two_tie_seq1 seq;
                 super.run_phase(phase);
                 phase.raise_objection(this, "Objection Raised");
-                seq = bottom_Two_tie_seq::type_id::create("seq");
+                seq = bottom_Two_tie_seq1::type_id::create("seq");
                 seq.start(env.evm_active_agent.seqr);
                 phase.drop_objection(this, "Objection Dropped");
         endtask
@@ -253,4 +253,5 @@ class maj_regression_test extends uvm_test;
                 phase.drop_objection(this, "Objection Dropped");
         endtask
 endclass
+
 

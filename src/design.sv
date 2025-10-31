@@ -44,7 +44,7 @@ always @(posedge clk or negedge rst) begin
         vote_candidate_1_flag <= 1'b0;
         vote_candidate_2_flag <= 1'b0;
         vote_candidate_3_flag <= 1'b0;
-        timer_counter <= 6'd0; // TIMER reset
+        timer_counter <= 7'd0; // TIMER reset
     end
     else if (!switch_on_evm) begin
         // Power-off/reset condition
@@ -55,7 +55,7 @@ always @(posedge clk or negedge rst) begin
         vote_candidate_1_flag <= 1'b0;
         vote_candidate_2_flag <= 1'b0;
         vote_candidate_3_flag <= 1'b0;
-        timer_counter <= 6'd0; // TIMER reset
+        timer_counter <= 7'd0; // TIMER reset
     end
     else begin
         current_state <= next_state;
@@ -69,10 +69,9 @@ case (current_state)
             timer_counter <= 7'd0; // reset on valid input
         else if (next_state != WAITING_FOR_CANDIDATE)
             timer_counter <= 7'd0; // reset when leaving this state
-        else if (timer_counter < TIMER_MAX)
+        else 
             timer_counter <= timer_counter + 1'b1;
-        else
-            timer_counter <= TIMER_MAX; // hold max
+
     end
 
     WAITING_FOR_CANDIDATE_TO_VOTE: begin
@@ -80,10 +79,9 @@ case (current_state)
             timer_counter <= 7'd0; // reset on valid vote
         else if (next_state != WAITING_FOR_CANDIDATE_TO_VOTE)
             timer_counter <= 7'd0; // reset when leaving this state
-        else if (timer_counter < TIMER_MAX)
+        else 
             timer_counter <= timer_counter + 1'b1;
-        else
-            timer_counter <= TIMER_MAX;
+
     end
 
     default: timer_counter <= 7'd0; // reset in other states
@@ -152,6 +150,14 @@ endcase
             vote_candidate_2_flag <= 1'b0;
             vote_candidate_3_flag <= 1'b0;
         end
+            default: begin 
+                /*candidate_1_vote_count <= candidate_1_vote_count; still functions as the same ., the default case here is intended to stay in the same values
+                candidate_2_vote_count <= candidate_2_vote_count; 
+                candidate_3_vote_count <= candidate_3_vote_count; 
+                vote_candidate_1_flag <= vote_candidate_1_flag; 
+                vote_candidate_2_flag <= vote_candidate_2_flag;
+                vote_candidate_3_flag <= vote_candidate_3_flag;*/
+            end
         endcase
     end
 end
@@ -217,6 +223,14 @@ always @(*) begin
                 end
             end
         end
+         default: begin 
+                /*candidate_1_vote_count <= candidate_1_vote_count; still functions as the same ., the default case here is intended to stay in the same values
+                candidate_2_vote_count <= candidate_2_vote_count; 
+                candidate_3_vote_count <= candidate_3_vote_count; 
+                vote_candidate_1_flag <= vote_candidate_1_flag; 
+                vote_candidate_2_flag <= vote_candidate_2_flag;
+                vote_candidate_3_flag <= vote_candidate_3_flag;*/
+         end
     endcase
 end
 
@@ -272,3 +286,4 @@ always @(*) begin
 end
 
 endmodule
+
