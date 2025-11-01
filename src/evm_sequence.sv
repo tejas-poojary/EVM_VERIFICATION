@@ -68,6 +68,107 @@ class pure_maj_seq extends uvm_sequence #(evm_sequence_item);
   endtask
 endclass
 
+
+class pure_maj_seq2 extends uvm_sequence #(evm_sequence_item);
+   `uvm_object_utils(pure_maj_seq2)
+
+   function new(string name = "pure_maj_seq2");
+       super.new(name);
+      endfunction
+
+       virtual task body();
+            `uvm_do_with(req, {req.switch_on_evm ==1;req.voting_session_done ==0;});
+             repeat(500) begin
+               `uvm_do_with(req, {req.switch_on_evm ==1;req.candidate_ready ==1;{req.vote_candidate_1, req.vote_candidate_2, req.vote_candidate_3} == 3'b100;req.voting_session_done == 0;});
+               `uvm_do_with(req, {req.switch_on_evm ==1;req.candidate_ready ==0;{req.vote_candidate_1, req.vote_candidate_2, req.vote_candidate_3} == 3'b100;req.voting_session_done == 0;});
+               `uvm_do_with(req, {req.switch_on_evm ==1;req.candidate_ready ==1;{req.vote_candidate_1, req.vote_candidate_2, req.vote_candidate_3} == 3'b100;req.voting_session_done == 0;});
+               `uvm_do_with(req, {req.switch_on_evm ==1;req.candidate_ready ==0;{req.vote_candidate_1, req.vote_candidate_2, req.vote_candidate_3} == 3'b100;req.voting_session_done == 0;});
+               `uvm_do_with(req, {req.switch_on_evm ==1;req.candidate_ready ==1;{req.vote_candidate_1, req.vote_candidate_2, req.vote_candidate_3} == 3'b001;req.voting_session_done == 0;});
+               `uvm_do_with(req, {req.switch_on_evm ==1;req.candidate_ready ==0;{req.vote_candidate_1, req.vote_candidate_2, req.vote_candidate_3} == 3'b001;req.voting_session_done == 0;});
+             end
+               `uvm_do_with(req, {req.switch_on_evm ==1;req.voting_session_done ==0;req.candidate_ready ==0;req.display_results inside {[0:2]};});
+               `uvm_do_with(req, {req.switch_on_evm ==1;req.candidate_ready ==0;req.voting_session_done ==1;req.display_winner == 1;req.display_results inside{[0:2]};});
+               `uvm_do_with(req, {req.switch_on_evm ==1;req.candidate_ready ==0;req.voting_session_done ==1;req.display_winner == 0;req.display_results inside{[0:3]};});
+               `uvm_do_with(req, {req.switch_on_evm ==0;req.candidate_ready ==0;req.voting_session_done ==0;});
+             `uvm_do_with(req, {req.switch_on_evm ==0;req.candidate_ready ==0;req.voting_session_done ==0;});
+           endtask
+endclass
+
+
+class one_greater_than_three_greater_than_two extends uvm_sequence #(evm_sequence_item);
+`uvm_object_utils(one_greater_than_three_greater_than_two)
+
+function new(string name = "one_greater_than_three_greater_than_two");
+  super.new(name);
+endfunction
+
+virtual task body();
+   `uvm_do_with(req, {req.switch_on_evm ==1; req.voting_session_done ==0;});
+   `uvm_do_with(req, {req.switch_on_evm ==1; req.candidate_ready ==1; {req.vote_candidate_1, req.vote_candidate_2, req.vote_candidate_3} ==1; req.voting_session_done ==0;});
+      `uvm_do_with(req, {req.switch_on_evm ==1; req.candidate_ready ==0; {req.vote_candidate_1, req.vote_candidate_2, req.vote_candidate_3} ==1; req.voting_session_done ==0;});
+  repeat(100) begin
+      `uvm_do_with(req, {req.switch_on_evm ==1; req.candidate_ready ==1; {req.vote_candidate_1, req.vote_candidate_2, req.vote_candidate_3} ==4; req.voting_session_done ==0;});
+      `uvm_do_with(req, {req.switch_on_evm ==1; req.candidate_ready ==0; {req.vote_candidate_1, req.vote_candidate_2, req.vote_candidate_3} ==4; req.voting_session_done ==0;});
+   end
+   `uvm_do_with(req, {req.switch_on_evm ==1; req.voting_session_done ==0; req.candidate_ready ==0; req.display_results inside {[0:2]};});
+   `uvm_do_with(req, {req.switch_on_evm ==1; req.candidate_ready ==0; req.voting_session_done ==1; req.display_winner ==1; req.display_results inside {[0:2]};});
+   `uvm_do_with(req, {req.switch_on_evm ==1; req.candidate_ready ==0; req.voting_session_done ==1; req.display_winner ==0; req.display_results inside {[0:3]};});
+   `uvm_do_with(req, {req.switch_on_evm ==1; req.voting_session_done ==1; req.display_winner ==1; req.display_results ==2;});
+   `uvm_do_with(req, {req.switch_on_evm ==0; req.candidate_ready ==0; req.voting_session_done ==0;});
+endtask
+
+endclass
+
+
+class two_greater_than_one_greater_than_three extends uvm_sequence #(evm_sequence_item);
+`uvm_object_utils(two_greater_than_one_greater_than_three)
+
+function new(string name = "two_greater_than_one_greater_than_three");
+  super.new(name);
+endfunction
+
+virtual task body();
+   `uvm_do_with(req, {req.switch_on_evm ==1; req.voting_session_done ==0;});
+   `uvm_do_with(req, {req.switch_on_evm ==1; req.candidate_ready ==1; {req.vote_candidate_1, req.vote_candidate_2, req.vote_candidate_3} ==4; req.voting_session_done ==0;});
+      `uvm_do_with(req, {req.switch_on_evm ==1; req.candidate_ready ==0; {req.vote_candidate_1, req.vote_candidate_2, req.vote_candidate_3} ==4; req.voting_session_done ==0;});
+  repeat(100) begin
+      `uvm_do_with(req, {req.switch_on_evm ==1; req.candidate_ready ==1; {req.vote_candidate_1, req.vote_candidate_2, req.vote_candidate_3} ==2; req.voting_session_done ==0;});
+      `uvm_do_with(req, {req.switch_on_evm ==1; req.candidate_ready ==0; {req.vote_candidate_1, req.vote_candidate_2, req.vote_candidate_3} ==2; req.voting_session_done ==0;});
+   end
+   `uvm_do_with(req, {req.switch_on_evm ==1; req.voting_session_done ==0; req.candidate_ready ==0; req.display_results inside {[0:2]};});
+   `uvm_do_with(req, {req.switch_on_evm ==1; req.candidate_ready ==0; req.voting_session_done ==1; req.display_winner ==1; req.display_results inside {[0:2]};});
+   `uvm_do_with(req, {req.switch_on_evm ==1; req.candidate_ready ==0; req.voting_session_done ==1; req.display_winner ==0; req.display_results inside {[0:3]};});
+   `uvm_do_with(req, {req.switch_on_evm ==1; req.voting_session_done ==1; req.display_winner ==1; req.display_results ==2;});
+   `uvm_do_with(req, {req.switch_on_evm ==0; req.candidate_ready ==0; req.voting_session_done ==0;});
+endtask
+
+endclass
+
+class three_greater_than_one_greater_than_two extends uvm_sequence #(evm_sequence_item);
+ `uvm_object_utils(three_greater_than_one_greater_than_two)
+
+ function new(string name = "three_greater_than_one_greater_than_two");
+  super.new(name);
+ endfunction
+
+ virtual task body();
+   `uvm_do_with(req, {req.switch_on_evm ==1; req.voting_session_done ==0;});
+   `uvm_do_with(req, {req.switch_on_evm ==1; req.candidate_ready ==1; {req.vote_candidate_1, req.vote_candidate_2, req.vote_candidate_3} ==4; req.voting_session_done ==0;});
+      `uvm_do_with(req, {req.switch_on_evm ==1; req.candidate_ready ==0; {req.vote_candidate_1, req.vote_candidate_2, req.vote_candidate_3} ==4; req.voting_session_done ==0;});
+  repeat(100) begin
+      `uvm_do_with(req, {req.switch_on_evm ==1; req.candidate_ready ==1; {req.vote_candidate_1, req.vote_candidate_2, req.vote_candidate_3} ==1; req.voting_session_done ==0;});
+      `uvm_do_with(req, {req.switch_on_evm ==1; req.candidate_ready ==0; {req.vote_candidate_1, req.vote_candidate_2, req.vote_candidate_3} ==1; req.voting_session_done ==0;});
+   end
+   `uvm_do_with(req, {req.switch_on_evm ==1; req.voting_session_done ==0; req.candidate_ready ==0; req.display_results inside {[0:2]};});
+   `uvm_do_with(req, {req.switch_on_evm ==1; req.candidate_ready ==0; req.voting_session_done ==1; req.display_winner ==1; req.display_results inside {[0:2]};});
+   `uvm_do_with(req, {req.switch_on_evm ==1; req.candidate_ready ==0; req.voting_session_done ==1; req.display_winner ==0; req.display_results inside {[0:3]};});
+   `uvm_do_with(req, {req.switch_on_evm ==1; req.voting_session_done ==1; req.display_winner ==1; req.display_results ==2;});
+   `uvm_do_with(req, {req.switch_on_evm ==0; req.candidate_ready ==0; req.voting_session_done ==0;});
+endtask
+
+endclass
+
+
 class top_2tie_seq1 extends uvm_sequence #(evm_sequence_item);
   `uvm_object_utils(top_2tie_seq1)
    bit candidate_selection;
@@ -381,6 +482,7 @@ class maj_regression_seq extends uvm_sequence #(evm_sequence_item);
  `uvm_object_utils(maj_regression_seq)
 
   pure_maj_seq seq1;
+  pure_maj_seq2 seq1_1;
   top_2tie_seq1 seq2;
   bottom_Two_tie_seq1 seq3;
   all_3tie_seq seq4;
@@ -395,28 +497,36 @@ class maj_regression_seq extends uvm_sequence #(evm_sequence_item);
   top_2tie_seq2 seq13;
   top_2tie_seq3 seq14;
   bottom_Two_tie_seq2 seq15;
+  one_greater_than_three_greater_than_two seq16;
+  two_greater_than_one_greater_than_three seq17;
+  three_greater_than_one_greater_than_two seq18;
 
  function new(string name = "maj_regression_seq");
   super.new(name);
  endfunction
 
  virtual task body();
-  `uvm_do(seq1);
-  `uvm_do(seq2);
-  `uvm_do(seq13);
-  `uvm_do(seq14);
-  `uvm_do(seq3);
-  `uvm_do(seq15);
-  `uvm_do(seq4);
-  `uvm_do(seq5);
-  `uvm_do(seq6);
-  `uvm_do(seq7);
-  `uvm_do(seq8);
-  `uvm_do(seq9);
-  `uvm_do(seq10);
-  `uvm_do(seq11);
-  `uvm_do(seq12);
-  //`uvm_do(seq5);
+ `uvm_do(seq5);
+ `uvm_do(seq1);
+ //`uvm_do(seq1_1);
+ `uvm_do(seq2);
+ `uvm_do(seq13);
+ `uvm_do(seq14);
+ `uvm_do(seq3);
+ `uvm_do(seq15);
+ `uvm_do(seq4);
+ // `uvm_do(seq5);
+ //`uvm_do(seq6);
+ `uvm_do(seq7);
+ `uvm_do(seq8);
+ `uvm_do(seq9);
+ `uvm_do(seq10);
+ `uvm_do(seq11);
+ `uvm_do(seq12);
+ `uvm_do(seq6);
+ `uvm_do(seq16);
+ `uvm_do(seq17);
+ `uvm_do(seq18);
  endtask
 endclass
 

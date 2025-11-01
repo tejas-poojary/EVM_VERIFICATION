@@ -11,7 +11,7 @@ class evm_sequence_item extends uvm_sequence_item;
 	rand bit display_winner;
 
 	//outputs
-	bit [2:0]candidate_name;
+	bit [1:0]candidate_name;
 	bit invalid_results;
   bit [`WIDTH-1:0]results;
   bit voting_in_progress;

@@ -12,7 +12,7 @@ interface evm_interface #(parameter WIDTH = 7)(input logic clk,rst);
 	logic display_winner;
 
 	//outputs
-	logic [2:0]candidate_name;
+	logic [1:0]candidate_name;
 	logic invalid_results;
   logic [WIDTH-1:0]results;
   logic voting_in_progress;
@@ -61,24 +61,24 @@ end
     $rose(voting_session_done)|=>(invalid_results || !invalid_results);
  endproperty
 
- property invalid_reult_clear_check;
-   @(posedge clk) disable iff(!rst)
-     !voting_session_done |-> !invalid_results;
+ property invalid_result_clear_check;
+  @(posedge clk) disable iff(!rst)
+    (!voting_session_done && !voting_done)  |-> !invalid_results;
  endproperty
  
  property candidate_name_00;
-   @(posedge clk) disable iff(!rst)
-     (display_results == 0 && !display_winner && voting_session_done) |-> (candidate_name == 1);
+  @(posedge clk) disable iff(!rst)
+    (display_results == 0 && !display_winner && voting_done && switch_on_evm && !invalid_results) |-> (candidate_name == 1);
  endproperty
 
  property candidate_name_01;
-   @(posedge clk) disable iff(!rst)
-     (display_results == 1 && !display_winner &&  voting_session_done) |-> (candidate_name == 2);
+  @(posedge clk) disable iff(!rst)
+    (display_results == 1 && !display_winner &&  voting_done && switch_on_evm && !invalid_results) |-> (candidate_name == 2);
  endproperty
 
  property candidate_name_10;
    @(posedge clk) disable iff(!rst)
-     (display_results == 2 && !display_winner && voting_session_done) |-> (candidate_name == 3);
+     (display_results == 2 && !display_winner && voting_done && switch_on_evm && !invalid_results) |-> (candidate_name == 3);
  endproperty
 
  property voting_in_progress_check;
@@ -110,7 +110,7 @@ endproperty*/
   else
    `uvm_info("INVALID_CHECK","invalid_results signal is asserted when fsm is not in voting_process_done state",UVM_NONE)
 
- assert property(invalid_reult_clear_check)
+ assert property(invalid_result_clear_check)
   else
    `uvm_info("INVALID_RESULT_CLEAR_CHECK","invalid_results signal is not cleared  when voting_session_done is deasserted",UVM_NONE)
 
