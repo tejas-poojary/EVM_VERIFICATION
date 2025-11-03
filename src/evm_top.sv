@@ -1,5 +1,5 @@
 `include "evm_interface.sv"
-`include "evm_package.sv"
+//`include "evm_package.sv"
 `include "design.sv"
 `include "uvm_macros.svh"
 
@@ -49,7 +49,7 @@ module top();
 
   initial
   begin
-    uvm_config_db #(virtual evm_interface)::set(uvm_root::get(),"*","evm_inf",vif);
+    uvm_config_db #(virtual evm_interface)::set(uvm_root::get(),"*","vif",vif);
   end
 
   initial

@@ -1,5 +1,5 @@
 class evm_agent extends uvm_agent;
- `uvm_component_utils(evm_agent)
+ `uvm_component_utils(evm_agent);
  evm_driver drv;
  evm_active_monitor act_mon;
  evm_passive_monitor pas_mon;
@@ -18,8 +18,10 @@ class evm_agent extends uvm_agent;
      drv=evm_driver::type_id::create("drv",this);
      seqr=evm_sequencer::type_id::create("seqr",this);
      act_mon=evm_active_monitor::type_id::create("act_mon",this);
-    end
+   end
+   else
      pas_mon=evm_passive_monitor::type_id::create("pas_mon",this);
+
   endfunction
 
  function void connect_phase(uvm_phase phase);
@@ -29,3 +31,4 @@ class evm_agent extends uvm_agent;
   endfunction
 
  endclass
+

@@ -98,7 +98,7 @@ class evm_scoreboard extends uvm_scoreboard;
          exp_out.voting_in_progress = 1;
      end
        else begin
-         if(!ready)
+         if(!ready && !inp_seq.candidate_ready)
          candidate_ready_count++;
        end
 

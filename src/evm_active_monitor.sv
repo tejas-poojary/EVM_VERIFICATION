@@ -9,12 +9,12 @@ class evm_active_monitor extends uvm_monitor;
   endfunction
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if(!uvm_config_db#(virtual evm_interface)::get(this,"","evm_inf",vif))
+    if(!uvm_config_db#(virtual evm_interface)::get(this,"","vif",vif))
     `uvm_fatal("NO_VIF",{"virtual interface must be set for: ",get_full_name(),".vif"});
   endfunction
   virtual task run_phase(uvm_phase phase);
     seq_item = evm_sequence_item :: type_id :: create("seq_item");
-    repeat(4)@(vif.evm_monitor_cb);
+    repeat(4)@(vif.act_monitor_cb);
     forever begin
       seq_item.vote_candidate_1 = vif.vote_candidate_1;
       seq_item.vote_candidate_2 = vif.vote_candidate_2;
@@ -27,7 +27,7 @@ class evm_active_monitor extends uvm_monitor;
       $display("ACTIVE MONITOR RECEIVES @%0t",$time);
       seq_item.print();
       act_mon_port.write(seq_item);
-      @(vif.evm_monitor_cb);
+      @(vif.act_monitor_cb);
     end
   endtask
 endclass
