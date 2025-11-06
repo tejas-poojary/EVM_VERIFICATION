@@ -78,8 +78,8 @@ class evm_scoreboard extends uvm_scoreboard;
       vote_candidate_2 = 0;
       vote_candidate_3 = 0;
       // evm outputs ....
-      exp_out.voting_in_progress = 0;
-      exp_out.voting_done = 0;
+      //exp_out.voting_in_progress = 0;
+      //exp_out.voting_done = 0;
       exp_out.invalid_results = 0;
       exp_out.results = 0; // default
       exp_out.candidate_name = 2'b00; // default !!
@@ -95,7 +95,6 @@ class evm_scoreboard extends uvm_scoreboard;
          ready=1;    //indicates that we have moved from waiting_for_candidate to waiting_for_candidate_to_vote state
          candidate_ready_count = 0;
          counter2_flag = 0;
-         exp_out.voting_in_progress = 1;
      end
        else begin
          if(!ready && !inp_seq.candidate_ready)
@@ -107,19 +106,16 @@ class evm_scoreboard extends uvm_scoreboard;
            waiting_for_candidate_to_vote_count=0;
            vote_candidate_1++;
            ready = 0;
-           exp_out.voting_in_progress = 0;
          end
         else if(~inp_seq.candidate_ready && ready && inp_seq.vote_candidate_2 )begin
            waiting_for_candidate_to_vote_count=0;
            vote_candidate_2++;
            ready = 0;
-           exp_out.voting_in_progress = 0;
          end
         else if(~inp_seq.candidate_ready && ready && inp_seq.vote_candidate_3)begin
            waiting_for_candidate_to_vote_count=0;
            vote_candidate_3++;
            ready = 0;
-           exp_out.voting_in_progress = 0;
          end
         else if(ready && ~inp_seq.candidate_ready)begin
            waiting_for_candidate_to_vote_count++;
@@ -127,11 +123,6 @@ class evm_scoreboard extends uvm_scoreboard;
        end
 
     $display("candidate_1_vote=%0d ||candidate_2_vote=%0d ||candidate_3_vote=%0d",vote_candidate_1,vote_candidate_2,vote_candidate_3);
-
-    // voting_session_done
-    if(inp_seq.voting_session_done &&  inp_seq.switch_on_evm)begin
-      exp_out.voting_done = 1;
- end
 
   temp_votes.delete();
   idx_map.delete();
@@ -193,14 +184,12 @@ end
   $display("candidate_ready_count = %0d || waiting_for_candidate_to_count = %0d",candidate_ready_count,waiting_for_candidate_to_vote_count);
      if(candidate_ready_count==100)
       begin
-         exp_out.voting_done = 1;
         candidate_ready_count=0;
         counter1_flag = 1;
       end
 
      if(waiting_for_candidate_to_vote_count==100)
       begin
-       exp_out.voting_in_progress = 0;
        waiting_for_candidate_to_vote_count=0;
        ready=0;
        counter2_flag = 1;
@@ -209,17 +198,6 @@ endtask
 
 task compare_exp_act_res(input  evm_sequence_item exp_out,input evm_sequence_item act_out);
     bit match_flag = 1;
-   /* if(exp_out.voting_in_progress === act_out.voting_in_progress)
-      `uvm_info(get_type_name(), $sformatf("VOTING_IN_PROGRESS HAS MATCHED\n exp : %0d | act : %0d",exp_out.voting_in_progress,act_out.voting_in_progress), UVM_LOW)
-    else
-      `uvm_info(get_type_name(), $sformatf("VOTING_IN_PROGRESS HAS MISMATCHED\n exp : %0d | act : %0d",exp_out.voting_in_progress,act_out.voting_in_progress), UVM_LOW)
-
-    if(exp_out.voting_done === act_out.voting_done)
-      `uvm_info(get_type_name(), $sformatf("VOTING_DONE HAS MATCHED\n exp : %0d | act : %0d",exp_out.voting_done,act_out.voting_done), UVM_LOW)
-  else begin
-      `uvm_info(get_type_name(), $sformatf("VOTING_DONE HAS MISMATCHED\n exp : %0d | act : %0d",exp_out.voting_done,act_out.voting_done), UVM_LOW)
-        match_flag = 0;
-  end*/
     if(exp_out.invalid_results === act_out.invalid_results)
       `uvm_info(get_type_name(), $sformatf("INVALID_RESULT HAS MATCHED\n exp : %0d | act : %0d ",exp_out.invalid_results,act_out.invalid_results), UVM_LOW)
   else begin
